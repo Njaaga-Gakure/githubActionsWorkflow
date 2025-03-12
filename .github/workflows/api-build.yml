@@ -20,5 +20,7 @@ jobs:
         working-directory: api
       - run: dotnet --list-runtimes
       - run: dotnet --list-sdks
-      - run: dotnet build
+      - run: |
+          dotnet build
+          pwd
         working-directory: ./api
