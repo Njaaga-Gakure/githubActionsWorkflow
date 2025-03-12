@@ -14,7 +14,9 @@ jobs:
     name: build-dotnet-api
     runs-on: ubuntu-latest
     steps:
+      - run: pwd && ls -la
       - uses: actions/checkout@v4
+      - run: pwd && ls -la
       - run: dotnet --list-runtimes
       - run: dotnet --list-sdks
       - run: dotnet build
