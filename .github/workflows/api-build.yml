@@ -23,4 +23,5 @@ jobs:
       - run: |
           dotnet build
           pwd
+          ls -la
         working-directory: ./api
