@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: env
+      - run: env | grep GH_TOKEN
       - run: gh --version
       - run: gh repo list
       - run: gh issue list
