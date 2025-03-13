@@ -10,6 +10,8 @@ jobs:
   chat:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Comment body
+        run: echo 'Comment Body = ${{ github.event.comment.body }}'
       - uses: ca-dp/code-butler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
