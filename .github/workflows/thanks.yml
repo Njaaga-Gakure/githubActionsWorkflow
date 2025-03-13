@@ -1,0 +1,41 @@
+name: thanks
+
+on:
+  issues:
+    types: opened
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  thanks:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@v7
+        id: issue_script
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue_number  = context.issue.number || 1
+            console.log(`issue_number = ${issue_number}`)
+
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            console.log(`Owner: ${owner}, Repo: ${repo}`)
+
+            // look up info about issue
+            const issue = await github.rest.issues.get({ repo, owner, issue_number }); 
+            console.log("issue: ", issue)
+            const { data: comment } = await github.rest.issue.createComment({ repo, owner, issue_number, body: "asante sana"})
+            console.log(`comment id: ${comment.id}`)
+            console.log("data : ", comment)
+
+            // auto label 
+            github.rest.issues.addLabels({ repo, owner, issue_number, labels: ['tdo-review']})
+
+            return comment.id
+      - run: echo 'commnet id=${{ steps.issue_script.outputs.result }}'
