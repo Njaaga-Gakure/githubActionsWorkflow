@@ -3,9 +3,6 @@ name: thanks
 on:
   issues:
     types: opened
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -35,7 +32,7 @@ jobs:
             console.log("data : ", comment)
 
             // auto label 
-            github.rest.issues.addLabels({ repo, owner, issue_number, labels: ['tdo-review']})
+            github.rest.issues.addLabels({ repo, owner, issue_number, labels: ['todo-review']})
 
             return comment.id
-      - run: echo 'commnet id=${{ steps.issue_script.outputs.result }}'
+      - run: echo 'comment id=${{ steps.issue_script.outputs.result }}'
