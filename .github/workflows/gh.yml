@@ -15,11 +15,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          env
-          gh --version
-          gh repo list
-          gh issue list
-          gh issue list
-          gh workflow list
-          gh api /repos/:owner/:repo/actions/workflows
+      - run: env
+      - run: gh --version
+      - run: gh repo list
+      - run: gh issue list
+      - run: gh issue list
+      - run: gh workflow list
+      - run: gh api /repos/:owner/:repo/actions/workflows
