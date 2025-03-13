@@ -30,7 +30,7 @@ jobs:
             // look up info about issue
             const issue = await github.rest.issues.get({ repo, owner, issue_number }); 
             console.log("issue: ", issue)
-            const { data: comment } = await github.rest.issue.createComment({ repo, owner, issue_number, body: "asante sana"})
+            const { data: comment } = await github.rest.issues.createComment({ repo, owner, issue_number, body: "asante sana"})
             console.log(`comment id: ${comment.id}`)
             console.log("data : ", comment)
 
