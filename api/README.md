@@ -1,0 +1,1 @@
+[![api-build](https://github.com/Njaaga-Gakure/githubActionsWorkflow/actions/workflows/api-build.yml/badge.svg)](https://github.com/Njaaga-Gakure/githubActionsWorkflow/actions/workflows/api-build.yml)
